@@ -1,4 +1,5 @@
 package udesc.cct.poo.passagem.controle;
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 
@@ -15,14 +16,16 @@ public class ControleGeral{
     private ServicoDeLocais servicoDeLocais;
     private ServicoDeViagens servicoDeViagens;
     private ServicoDePassagens servicoDePassagens;
+    private ControleDeLogin controleDeLogin;
 
     private ControleMarcarPassagem marcarPassagem;
 
-    public ControleGeral(){
+    public ControleGeral() throws NoSuchAlgorithmException{
         this.scanner = new Scanner(System.in);
         this.servicoDeLocais = new ServicoDeLocais();
         this.servicoDeViagens = new ServicoDeViagens();
         this.servicoDePassagens = new ServicoDePassagens();
+        this.controleDeLogin = new ControleDeLogin();
 
         this.marcarPassagem = new ControleMarcarPassagem(
         		this.scanner, 
@@ -31,7 +34,8 @@ public class ControleGeral{
         		this.servicoDePassagens);
     }
 
-    public void iniciar(){
+    public void iniciar() throws Exception{
+    	this.controleDeLogin.teste();
         int escolha = -1;
         while(escolha != ControleGeral.SAIR){
             System.out.println("Escolha algo:");
