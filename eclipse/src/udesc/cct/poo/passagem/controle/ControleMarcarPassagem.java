@@ -32,6 +32,7 @@ public class ControleMarcarPassagem{
         Viagem escolhida = this.acharUmaViagemPorOrigemDestino(origem, destino);
         Assento assento = this.escolherAssento(escolhida);
         assento.reservar();
+        this.scanner.nextLine();
         System.out.println("Digite o nome completo do passageiro(a): ");
         String nome = this.scanner.nextLine();
         System.out.println("Digite o cpf do passageiro(a), sem pontos ou traços: ");

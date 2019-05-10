@@ -1,10 +1,13 @@
 package udesc.cct.poo.passagem.controle;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 
 import udesc.cct.poo.passagem.servicos.ServicoDeLocais;
 import udesc.cct.poo.passagem.servicos.ServicoDePassagens;
 import udesc.cct.poo.passagem.servicos.ServicoDeViagens;
+import udesc.cct.poo.passagem.controle.ControleDeLogin;
 
 public class ControleGeral{
     public final static int MARCAR_PASSAGEM = 1;
@@ -15,6 +18,7 @@ public class ControleGeral{
     private ServicoDeLocais servicoDeLocais;
     private ServicoDeViagens servicoDeViagens;
     private ServicoDePassagens servicoDePassagens;
+    private ControleDeLogin controleDeLogin;
 
     private ControleMarcarPassagem marcarPassagem;
 
@@ -23,6 +27,7 @@ public class ControleGeral{
         this.servicoDeLocais = new ServicoDeLocais();
         this.servicoDeViagens = new ServicoDeViagens();
         this.servicoDePassagens = new ServicoDePassagens();
+        this.controleDeLogin = new ControleDeLogin();
 
         this.marcarPassagem = new ControleMarcarPassagem(
         		this.scanner, 
@@ -31,7 +36,14 @@ public class ControleGeral{
         		this.servicoDePassagens);
     }
 
-    public void iniciar(){
+    public void iniciar() throws NoSuchAlgorithmException, UnsupportedEncodingException{
+    	System.out.println("Insira o usuário: ");
+    	String inputUser = this.scanner.nextLine();
+    	System.out.println("Insira a sua senha");
+    	String inputSenha = this.scanner.nextLine();
+    	
+    	this.controleDeLogin.login(inputUser, inputSenha);
+    	
         int escolha = -1;
         while(escolha != ControleGeral.SAIR){
             System.out.println("Escolha algo:");
