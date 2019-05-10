@@ -32,7 +32,6 @@ public class ControleDeLogin {
 		}
 		
 		String senhaHex = hexString.toString();
-		System.out.println(senhaHex);
 		
 		return senhaHex;		
 	}
