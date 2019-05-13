@@ -1,5 +1,6 @@
 package udesc.cct.poo.passagem.controle;
-import java.util.Scanner; 
+import java.util.Scanner;
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -11,42 +12,44 @@ public class ControleDeLogin {
 	private User usuario = new User("user", "user@123");
 	
 	
-	public void ControleDeLogin() throws Exception {
-		
-	}
+	public void ControleDeLogin() throws Exception {}
 	
-	public void login() {
-		String user = this.scanner.toString();
-		String senha = this.scanner.toString();
+	public boolean login(String inputUser, String inputSenha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
-		User login = new User(user, senha);
-	}
-	
-	public void teste() throws Exception {
+		System.out.println(inputUser + " " + this.admin.login);	
 		
-		String data = "admin";
-		String algorithm = "SHA-256";
-		System.out.println(generateHash(data, algorithm));
-		
-	}
-
-	private static String generateHash(String data, String algorithm) throws NoSuchAlgorithmException {
-		MessageDigest digest = MessageDigest.getInstance(algorithm);
-		digest.reset();
-		byte[] hash = digest.digest(data.getBytes());
-		return bytesToStringHex(hash);
-	}
-	
-	private final static char[] hexArray = "teste123".toCharArray();
-	
-	public static String bytesToStringHex(byte[] bytes) {
-		char[] hexChars = new char[bytes.length * 2];
-		for (int j = 0; j < bytes.length; j++) {
-			int v = bytes[j] & 0xFF;
-			hexChars[j * 2] = hexArray[v >>> 4];
-			hexChars[j * 2 + 1] = hexArray[v & 0xFF];
+		if (inputUser == this.admin.login || inputUser == this.usuario.login) { 
+			this.admin.senha = this.fazOSalt(this.admin.senha);
+			System.out.println(this.admin.senha);
+			this.usuario.senha = this.fazOSalt(this.usuario.senha);
+			System.out.println(this.usuario.senha);
+			inputSenha = this.fazOSalt(inputSenha);
+			System.out.println(inputSenha);
+			
+			if (inputSenha == this.admin.senha || inputSenha == this.usuario.senha) {
+				return true;
+			} else {
+				return false;
+			}			
 		}
-		return new String(hexChars);
+		
+		return false;
+	}
+	
+	private String fazOSalt(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		
+		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
+		byte MessageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
+		
+		StringBuilder hexString = new StringBuilder();
+		
+		for (byte b : MessageDigest) {
+			hexString.append(String.format("%02X", 0xFF & b));
+		}
+		
+		String senhaHex = hexString.toString();
+		
+		return senhaHex;		
 	}
 }
 
