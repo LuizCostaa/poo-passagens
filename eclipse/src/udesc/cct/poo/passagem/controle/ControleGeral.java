@@ -37,7 +37,7 @@ public class ControleGeral{
     }
 
     public void iniciar() throws NoSuchAlgorithmException, UnsupportedEncodingException{
-    	System.out.println("Insira o usuário: ");
+    	System.out.println("Insira o usuï¿½rio: ");
     	String inputUser = this.scanner.nextLine();
     	System.out.println("Insira a sua senha:   ");
     	String inputSenha = this.scanner.nextLine();
@@ -66,7 +66,7 @@ public class ControleGeral{
             }
     		
     	} else {
-    		System.out.println("O usuário ou senha inseridos está incorreto");
+    		System.out.println("O usuï¿½rio ou senha inseridos estï¿½ incorreto");
     	}
     	
         
