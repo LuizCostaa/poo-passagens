@@ -26,16 +26,16 @@ Fazer A, B, E, G, C, F = 10
 
 Fazer A, C, D, H = 10
 
-### F01) Pontuais (Fácil)
+### F01) Pontuais (Fácil) :heavy_check_mark:
 - A.1) Criar uma mensagem de saída que diz "programa finalizado".
 - A.2) Decidir a visibilidade dos métodos da classe ControleMarcarPassagem.
 - A.3) Adicionar três novas cidades como origem e destino.
 
-### B) Visualização de Assentos (Fácil)
+### B) Visualização de Assentos (Fácil) :heavy_check_mark:
 - B.1) Mostrar o tipo de assento na escolha de assentos.
 - B.2) Mostrar em duas colunas os assentos.
 
-### C) Criar uma Passagem ao marcar uma passagem (Médio)
+### C) Criar uma Passagem ao marcar uma passagem (Médio) :heavy_check_mark:
 - C.1) Criar uma passagem ao final do caso de marcar passagem.
 - C.2) Depois de criar a passagem, pedir nome e cpf do passageiro ou da passageira.
 - C.3) Arrumar classe passageiro para funcionar como especificado.
@@ -49,7 +49,7 @@ Fazer A, C, D, H = 10
 - D.4) Associar o novo controle ao item dois do menu.
 - D.5) Adicionar passagens de teste no local adequado para teste.
 
-### E) Mudar visualização de viagens (Fácil)
+### E) Mudar visualização de viagens (Fácil) :heavy_check_mark:
 - E.1) Mostrar somente os assentos vagos de uma viagem no momento em que é possível escolher assento.
 
 ### F) Melhorar uso do caso de marcar passagens (Médio)
