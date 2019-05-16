@@ -14,8 +14,6 @@ public class ControleDeLogin {
 	
 	public boolean login(String inputUser, String inputSenha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
-		System.out.println(inputUser + " " + this.admin.login);	
-		
 		if (inputUser.equals(this.admin.login) || inputUser.contentEquals(this.usuario.login)) { 
 			this.admin.senha = this.fazOSalt(this.admin.senha);
 			this.usuario.senha = this.fazOSalt(this.usuario.senha);
