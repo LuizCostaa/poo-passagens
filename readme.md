@@ -82,7 +82,7 @@ Fazer A, C, D, H = 10
 - J.5) Criar uma opção no menu para listar os locais atendidos.
 - J.6) Criar uma opção para filtrar locais por estados.
 
-### K) Adicionar login e senha ao iniciar o programa, usando OO (Difícil)
+### K) Adicionar login e senha ao iniciar o programa, usando OO (Difícil) :heavy_check_mark:
 - K.1) Pré Cadastrar dois usuários.
 - K.2) Usar princípios de salt e hash.
 - K.3) O usuário não deve conseguir logar se usuário e senha não baterem.
