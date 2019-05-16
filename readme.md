@@ -1,6 +1,9 @@
 # Projeto Originalmente desenvolvido por Gustavo Kira
 https://bitbucket.org/gustavokira/
 
+### Alunos
+Luiz Guilherme e Alisson Santos
+
 ## Passagens!
 A nota do exercício será dada pela soma da primeira e segunda partes. Este exercício corresponde a metade da segunda nota da disciplina.
 
