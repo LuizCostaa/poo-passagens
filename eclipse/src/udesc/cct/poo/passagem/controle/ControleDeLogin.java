@@ -6,8 +6,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class ControleDeLogin {
 	
-	private Scanner scanner;
-	private String algoritmo = "SHA-256";	
 	private User admin = new User("admin", "admin@123");
 	private User usuario = new User("user", "user@123");
 	
@@ -18,15 +16,12 @@ public class ControleDeLogin {
 		
 		System.out.println(inputUser + " " + this.admin.login);	
 		
-		if (inputUser == this.admin.login || inputUser == this.usuario.login) { 
+		if (inputUser.equals(this.admin.login) || inputUser.contentEquals(this.usuario.login)) { 
 			this.admin.senha = this.fazOSalt(this.admin.senha);
-			System.out.println(this.admin.senha);
 			this.usuario.senha = this.fazOSalt(this.usuario.senha);
-			System.out.println(this.usuario.senha);
 			inputSenha = this.fazOSalt(inputSenha);
-			System.out.println(inputSenha);
 			
-			if (inputSenha == this.admin.senha || inputSenha == this.usuario.senha) {
+			if (inputSenha.equals(this.admin.senha)|| inputSenha.equals(this.usuario.senha)) {
 				return true;
 			} else {
 				return false;
@@ -37,6 +32,8 @@ public class ControleDeLogin {
 	}
 	
 	private String fazOSalt(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		
+		senha = senha + "salt";
 		
 		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
 		byte MessageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
